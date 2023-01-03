@@ -8,16 +8,19 @@ use bevy::DefaultPlugins;
 use bevy_game::GamePlugin;
 use std::io::Cursor;
 use winit::window::Icon;
+use bevy_pkv::PkvStore;
+
 
 fn main() {
     App::new()
         .insert_resource(Msaa { samples: 1 })
         .insert_resource(ClearColor(Color::rgb(0.4, 0.4, 0.4)))
+        .insert_resource(PkvStore::new("VaguelyDamp", "BevyStarter")) // ToDo
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             window: WindowDescriptor {
                 width: 800.,
                 height: 600.,
-                title: "Bevy game".to_string(), // ToDo
+                title: "BevyStarter".to_string(), // ToDo
                 canvas: Some("#bevy".to_owned()),
                 ..Default::default()
             },

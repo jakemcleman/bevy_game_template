@@ -1,7 +1,6 @@
 use crate::GameState;
 use bevy::prelude::*;
 use bevy_asset_loader::prelude::*;
-use bevy_kira_audio::AudioSource;
 
 pub struct LoadingPlugin;
 
@@ -14,7 +13,7 @@ impl Plugin for LoadingPlugin {
             LoadingState::new(GameState::Loading)
                 .with_collection::<FontAssets>()
                 .with_collection::<AudioAssets>()
-                .with_collection::<TextureAssets>()
+                .with_collection::<SpriteAssets>()
                 .continue_to_state(GameState::Menu),
         );
     }
@@ -36,7 +35,9 @@ pub struct AudioAssets {
 }
 
 #[derive(AssetCollection, Resource)]
-pub struct TextureAssets {
-    #[asset(path = "textures/bevy.png")]
+pub struct SpriteAssets {
+    #[asset(path = "sprites/bevy.png")]
     pub texture_bevy: Handle<Image>,
+    #[asset(path = "sprites/dampboi.png")]
+    pub texture_dampboi: Handle<Image>,
 }
