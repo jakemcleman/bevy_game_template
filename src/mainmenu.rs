@@ -5,7 +5,6 @@ use bevy_quickmenu::{
     ScreenTrait,
 };
 
-
 use crate::GameState;
 use crate::loading::SpriteAssets;
 use crate::ui_events::UiEvent;
